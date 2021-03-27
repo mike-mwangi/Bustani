@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <h1 ><i class="fa fa-file">Edit Product details</i></h1>
 
-            <form action="/product/{{ $product->id }}" method="post" enctype="multipart/form-data">
+            <form action="/products/{{ $product->id }}" method="post" enctype="multipart/form-data">
 
                 @method('PATCH')
 
