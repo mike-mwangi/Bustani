@@ -1,0 +1,16 @@
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1><i  class="fa fa-file">Add Product</i></h1>
+
+            <form action="/product" method="post" enctype="multipart/form-data">
+
+                @include('product.form')
+                <button class="btn btn-success">Add</button>
+
+            </form>
+        </div>
+    </div>
+</div>
