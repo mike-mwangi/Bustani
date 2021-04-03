@@ -1,6 +1,5 @@
 <?php $__env->startSection('content'); ?>
   <body class="goto-here">
-
     <section id="home-section" class="hero">
 		  <div class="home-slider owl-carousel">
 	      <div class="slider-item" style="background-image: url(assets/images/bg_1.jpg);">
@@ -492,7 +491,7 @@
         <div class="row d-flex justify-content-center py-5">
           <div class="col-md-6">
           	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-          	<span>Get e-mail updates about our latest shops and special offers</span>
+          	<span>Get e-mail updates about our latest blogs and special offers</span>
           </div>
           <div class="col-md-6 d-flex align-items-center">
             <form action="#" class="subscribe-form">

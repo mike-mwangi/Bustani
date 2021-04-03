@@ -20,4 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');
+
+//Create admin middleware group for products page in admin
+// Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');
+
+//Test routes for products page in client
+Route::get('/products', function () {
+    return view('client.products.index');
+});
+Route::get('/single-product', function () {
+    return view('client.products.show');
+});
+
+// Route::get('/products', 'App\Http\Controllers\ProductController@index');
+
+// Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show');
+

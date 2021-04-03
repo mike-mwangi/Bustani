@@ -24,11 +24,11 @@
   </head>
 
   <body>
-      @include("partials.nav");
+      @include("partials.nav")
 
       @yield('content')
 
-      @include("partials.footer");
+      @include("partials.footer")
   </body>
 
 </html>
