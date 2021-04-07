@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/profile', function () {
-    return view('profile/user');
+    return view('profile.show');
 });
 
 Auth::routes();
@@ -28,9 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');
 
 //Test routes for products page in client
-Route::get('/products', function () {
-    return view('client.products.index');
-});
+
 Route::get('/single-product', function () {
     return view('client.products.show');
 });

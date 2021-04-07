@@ -1,19 +1,19 @@
-@extends('layouts.profile')
+
  
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="content">
 <div class="container d-flex justify-content-center">
     <div class="card p-3 py-4">
-        <div class="text-center"> <img src="{{asset("assets/images/users/".Auth::user()->profile_photo)}}" width='100' class="rounded-circle">
-            <h3 class="mt-2">{{ Auth::user()->name }}</h3>City: <span class="mt-1 clearfix">{{ Auth::user()->city }}</span> Phone Number: <small class="mt-4">{{ Auth::user()->phone_number }}</small>
+        <div class="text-center"> <img src="<?php echo e(asset("assets/images/users/".Auth::user()->profile_photo)); ?>" width='100' class="rounded-circle">
+            <h3 class="mt-2"><?php echo e(Auth::user()->name); ?></h3>City: <span class="mt-1 clearfix"><?php echo e(Auth::user()->city); ?></span> Phone Number: <small class="mt-4"><?php echo e(Auth::user()->phone_number); ?></small>
             <div class="social-buttons mt-5"> <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button> </div>
         </div>
     </div>
 </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import  url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
 * {
     margin: 0;
@@ -80,3 +80,4 @@ html,
 .fa-twitter {
     color: #55acee
 }</style>
+<?php echo $__env->make('layouts.profile', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\gudle\OneDrive\Desktop\web-applications\Bustani\resources\views/profile/show.blade.php ENDPATH**/ ?>
