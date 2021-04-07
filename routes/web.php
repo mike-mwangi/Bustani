@@ -30,7 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');
 
 //Test routes for products page in client
-
 Route::get('/single-product', function () {
     return view('client.products.show');
 });
@@ -39,9 +38,10 @@ Route::get('/admin', function (){
     return view('admin.dashboard');
 });
 
-// Route::get('/products', 'App\Http\Controllers\ProductController@index');
+Route::get('/products', 'App\Http\Controllers\ProductController@index');
+
 
 // Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show');
 
-Route::resource('products-admin', \App\Http\Controllers\ProductController::class);
+// Route::resource('products', \App\Http\Controllers\ProductController::class);
 
