@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToUsers extends Migration
+class AddTypeToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,8 @@ class AddFieldsToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('city');
-            $table->string('phone_number');
-            $table->string('profile_photo');
-            
+            //
+            $table->string('type_of_user');
         });
     }
 
