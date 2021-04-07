@@ -3,7 +3,6 @@
 
 @section('content')
   <body class="goto-here">
-
     <section id="home-section" class="hero">
 		  <div class="home-slider owl-carousel">
 	      <div class="slider-item" style="background-image: url(assets/images/bg_1.jpg);">
