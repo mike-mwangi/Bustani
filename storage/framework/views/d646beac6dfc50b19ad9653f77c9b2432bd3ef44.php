@@ -1,22 +1,19 @@
-
-@extends('admin.admin')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
     Products | Bustani
-@endsection
-@section('body')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('body'); ?>
     <div id="page-wrapper">
         <head>
-            {{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">--}}
+            
             <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-            {{--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--}}
+            
         </head>
 
-        {{--<h1 class="h1" style="color: #0e9f6e; text-align: center;">Users</h1>--}}
+        
         <div class="page-header">
             <div>
-{{--                <h1><i class="fa fa-gears"></i> Products Administration <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a>--}}
-{{--                    <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right">Permissions</a></h1>--}}
+
+
                 <hr>
 
                 <div class="table-responsive">
@@ -35,32 +32,32 @@
                         </thead>
 
                         <tbody>
-                        @foreach ($product as $product)
+                        <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
 
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->description }}</td>
-                                <td>{{ $product->created_at->format('F d, Y h:ia') }}</td>
-                                <td>{{ $product->type }}</td>
-                                <td>{{  $product->price}}</td>
-                                <td><img src="{{asset('storage/product-images/' . $product->product_image)}}" width="auto;" height="70px;" alt="product_image"> </td>
+                                <td><?php echo e($product->name); ?></td>
+                                <td><?php echo e($product->description); ?></td>
+                                <td><?php echo e($product->created_at->format('F d, Y h:ia')); ?></td>
+                                <td><?php echo e($product->type); ?></td>
+                                <td><?php echo e($product->price); ?></td>
+                                <td><img src="<?php echo e(asset('storage/product-images/' . $product->product_image)); ?>" width="auto;" height="70px;" alt="product_image"> </td>
                                 <td>
-                                    <a href="{{ route('product.edit', $product->id) }}" class="btn btn-dark pull-left" style="margin-right: 30px; margin-left: 30px;">Edit</a>
+                                    <a href="<?php echo e(route('product.edit', $product->id)); ?>" class="btn btn-dark pull-left" style="margin-right: 30px; margin-left: 30px;">Edit</a>
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" data-form-link="{{ route('product.destroy', $product->id) }}" class="btn btn-danger delete-user-btn">
+                                    <button type="button" data-form-link="<?php echo e(route('product.destroy', $product->id)); ?>" class="btn btn-danger delete-user-btn">
                                         DELETE
                                     </button>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
+            <a href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add Product</a>
         </div>
-        @endsection
+        <?php $__env->stopSection(); ?>
 
         <style>
             table {
@@ -78,7 +75,7 @@
 
         </style>
 
-        @section('script')
+        <?php $__env->startSection('script'); ?>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
             <script
                 src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -86,8 +83,8 @@
                 crossorigin="anonymous">
 
             </script>
-            {{--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>--}}
-            {{--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>--}}
+            
+            
             <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
             <script type="text/javascript">
@@ -112,7 +109,7 @@
                                     url: deleteUrl,
                                     type: 'DELETE',
                                     data: {
-                                        "_token": "{{ csrf_token() }}"
+                                        "_token": "<?php echo e(csrf_token()); ?>"
                                     }
                                 }).then((res) => {
                                     console.log('test 3');
@@ -128,4 +125,6 @@
 
             </script>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/mike/Desktop/Bustani/resources/views/admin/product/index.blade.php ENDPATH**/ ?>
