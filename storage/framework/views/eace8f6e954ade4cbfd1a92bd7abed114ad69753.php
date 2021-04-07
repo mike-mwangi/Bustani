@@ -7,10 +7,7 @@
                         <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
                         <span class="text">+ 1235 2355 98</span>
                     </div>
-                    {{-- <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-                        <span class="text">youremail@email.com</span>
-                    </div> --}}
+                    
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
                         <span class="text">info@bustani.com</span>
                     </div>
@@ -34,51 +31,51 @@
           <div class="dropdown-menu" aria-labelledby="dropdown04">
               <a class="dropdown-item" href="shop.html">Shop</a>
               <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-            {{-- <a class="dropdown-item" href="product-single.html">Single Product</a>
-            <a class="dropdown-item" href="cart.html">Cart</a>
-            <a class="dropdown-item" href="checkout.html">Checkout</a> --}}
+            
           </div>
         </li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          @guest
-                            @if (Route::has('login'))
+          <?php if(auth()->guard()->guest()): ?>
+                            <?php if(Route::has('login')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                                 </li>
-                            @endif
+                            <?php endif; ?>
                             
-                            @if (Route::has('register'))
+                            <?php if(Route::has('register')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
                                 </li>
-                            @endif
-                        @else
+                            <?php endif; ?>
+                        <?php else: ?>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#82ae46" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }}
+                                    <?php echo e(Auth::user()->name); ?>
+
                                 </a>
 
                                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/profile">Profile</a>
                                 <a class="dropdown-item" href="/profile">My Products</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <?php echo e(__('Logout')); ?>
+
                                     </a>
                                     
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                        <?php echo csrf_field(); ?>
                                     </form>
                                 </div>
                             </li>
-                        @endguest
-          {{-- <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> --}}
+                        <?php endif; ?>
+          
         </ul>
       </div>
     </div>
   </nav>
-<!-- END nav -->
+<!-- END nav --><?php /**PATH C:\Users\gudle\OneDrive\Desktop\web-applications\Bustani\resources\views/partials/nav.blade.php ENDPATH**/ ?>
