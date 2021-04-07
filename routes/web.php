@@ -43,5 +43,5 @@ Route::get('/admin', function (){
 
 // Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show');
 
-Route::resource('products', \App\Http\Controllers\ProductController::class);
+Route::resource('products-admin', \App\Http\Controllers\ProductController::class);
 
