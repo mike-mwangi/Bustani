@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\gudle\OneDrive\Desktop\web-applications\Bustani\resources\views/product/index.blade.php ENDPATH**/ ?>

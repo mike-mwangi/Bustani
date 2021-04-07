@@ -16,18 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/*Route::get('/profile', function () {
+    return view('profile.show');
+});
+*/
 
 Auth::routes();
-
+Route::resource('profile', \App\Http\Controllers\UserController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::put('/profile.{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')
 
 //Create admin middleware group for products page in admin
 // Route::resource('products', \App\Http\Controllers\ProductController::class)->middleware('auth');
 
 //Test routes for products page in client
-Route::get('/products', function () {
-    return view('client.products.index');
-});
+
 Route::get('/single-product', function () {
     return view('client.products.show');
 });
